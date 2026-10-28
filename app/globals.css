@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ink-50 text-ink-900 antialiased;
+  }
+  ::selection {
+    @apply bg-royal-200 text-royal-900;
+  }
+  *:focus-visible {
+    @apply outline-none ring-2 ring-royal-500 ring-offset-2 ring-offset-white;
+  }
+}
+
+@layer components {
+  .kf-card {
+    @apply rounded-2xl border border-ink-200/80 bg-white shadow-card;
+  }
+  .kf-input {
+    @apply w-full rounded-lg border border-ink-300 bg-white px-3 py-2 text-sm text-ink-900
+           placeholder:text-ink-400 focus:border-royal-500 focus:ring-1 focus:ring-royal-500
+           disabled:cursor-not-allowed disabled:bg-ink-50;
+  }
+  .kf-label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-ink-500;
+  }
+  .kf-table {
+    @apply w-full border-collapse text-sm;
+  }
+  .kf-table th {
+    @apply border-b border-ink-200 bg-ink-50/70 px-4 py-2.5 text-left text-[11px] font-semibold
+           uppercase tracking-wider text-ink-500;
+  }
+  .kf-table td {
+    @apply border-b border-ink-100 px-4 py-3 align-middle text-ink-700;
+  }
+  .kf-table tbody tr:hover {
+    @apply bg-royal-50/40;
+  }
+}
+
+@media print {
+  .no-print { display: none !important; }
+}
